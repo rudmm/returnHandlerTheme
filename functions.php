@@ -28,3 +28,42 @@ function add_scripts(){
 }
 
 //########################################################################################################################
+
+//add suctom logo
+
+add_action('after_setup_theme', 'theme_custom_logo');
+
+function theme_custom_logo(){
+	add_theme_support( 'custom-logo' );
+}
+
+//########################################################################################################################
+
+//register menu
+
+add_action('after_setup_theme', 'theme_register_nav_menu');
+
+function theme_register_nav_menu(){
+    register_nav_menu('top', 'Top menu');
+}
+
+//#######################################################################################################################
+
+//add svg types image
+
+add_filter( 'upload_mimes', 'upload_allow_types' );
+add_filter( 'wp_check_filetype_and_ext', 'upload_allow_types' );
+function upload_allow_types( $mimes ) {
+  // разрешаем новые типы
+  $mimes['svg']  = 'image/svg+xml';
+  $mimes['doc']  = 'application/msword';
+  $mimes['woff'] = 'font/woff';
+  $mimes['psd']  = 'image/vnd.adobe.photoshop';
+  $mimes['djv']  = 'image/vnd.djvu';
+  $mimes['djvu'] = 'image/vnd.djvu';
+
+  return $mimes;
+}
+    
+
+//#################################################

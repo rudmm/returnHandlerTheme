@@ -5,7 +5,7 @@
                             <div class="mbox">
                                 <div class="fixedblock">
                                     <div class="header_logo">
-                                        <a href="#"><img src="assets/img/logo.svg" alt="logo" class="img-fluid"></a>
+                                        <?php the_custom_logo(); ?>
                                     </div>
                                     <div class="btn-menu">
                                         <span></span>
@@ -14,11 +14,23 @@
                                     </div>
                                     <div class="navbar">
                                         <div class="header_menu">
-                                            <ul class="menu">
-                                                <li class="menu-item"><a href="solution.html">Solution</a></li>
-                                                <li class="menu-item"><a href="works.html">How it works</a></li>
-                                                <li class="menu-item"><a href="blog.html">Blog</a></li>
-                                            </ul>
+                                        <?php wp_nav_menu( [
+                                                'theme_location'  => 'top', 
+                                                'container'       => null, 
+                                                'container_class' => null, 
+                                                'container_id'    => null,
+                                                'menu_class'      => 'menu', 
+                                                'menu_id'         => null,
+                                                'echo'            => true,
+                                                'fallback_cb'     => 'wp_page_menu',
+                                                'before'          => '',
+                                                'after'           => '',
+                                                'link_before'     => '',
+                                                'link_after'      => '',
+                                                'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                                                'depth'           => 0,
+                                                'walker'          => '',
+                                            ] ); ?>
                                         </div>
                                         <div class="header_btn">
                                             <a href="#">Request Invite</a>
@@ -44,12 +56,12 @@
                 <div class="top-image">
                     <div class="wrapper">
                         <div class="image_animate">
-                            <img src="assets/img/top.svg" alt="top" class="img-fluid headerelement element">
-                            <img src="assets/img/element4.svg" alt="element4" class=" element4 element">
-                            <img src="assets/img/element1.svg" alt="element1" class=" element element1">
-                            <img src="assets/img/element2.svg" alt="element2" class=" element element2">
-                            <img src="assets/img/element3.svg" alt="element3" class=" element element3">
-                            <img src="assets/img/element5.svg" alt="element5" class=" element element5">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/top.svg" alt="top" class="img-fluid headerelement element">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/element4.svg" alt="element4" class=" element4 element">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/element1.svg" alt="element1" class=" element element1">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/element2.svg" alt="element2" class=" element element2">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/element3.svg" alt="element3" class=" element element3">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/element5.svg" alt="element5" class=" element element5">
                         </div>
                     </div>
                 </div>
@@ -64,7 +76,7 @@
                 <section class="infosection">
                     <div class="info">
                         <div class="info_image">
-                            <img src="assets/img/flexone.svg" alt="flexone" class="img-fluid">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/flexone.svg" alt="flexone" class="img-fluid">
                         </div>
                         <div class="info_text">
                             <div class="info_text_title">
@@ -74,13 +86,13 @@
                                 <p><strong>ReturnHandler</strong> is changing the way brands look at returns and exchanges. Instead of trying to decrease return disappointing process, good customers get free incentives to buy again and cancel the return.</p>
                             </div>
                             <div class="info_text_btn">
-                                <a href="#">Learn more about our solution  <img src="assets/img/right.svg" alt="right" class="img-fluid"></a>
+                                <a href="#">Learn more about our solution  <img src="<?php echo get_template_directory_uri() ?>/assets/img/right.svg" alt="right" class="img-fluid"></a>
                             </div>
                         </div>
                     </div>
                     <div class="info reverse">
                         <div class="info_image">
-                            <img src="assets/img/flextwo.svg" alt="flextwo" class="img-fluid">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/flextwo.svg" alt="flextwo" class="img-fluid">
                         </div>
                         <div class="info_text">
                             <div class="info_text_title">
@@ -93,7 +105,7 @@
                     </div>
                     <div class="info">
                         <div class="info_image">
-                            <img src="assets/img/flexthree.svg" alt="flexthree" class="img-fluid">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/flexthree.svg" alt="flexthree" class="img-fluid">
                         </div>
                         <div class="info_text">
                             <div class="info_text_title">
@@ -103,7 +115,7 @@
                                 <p>It looks like magic, but it is not. We analyze (a lot) of data using sophisticated mathematical models based on machine learning and AI, considering hundreds of parameters.</p>    
                             </div>
                             <div class="info_text_btn">
-                                <a href="#">Learn more about how it works  <img src="assets/img/right.svg" alt="right" class="img-fluid"></a>
+                                <a href="#">Learn more about how it works  <img src="<?php echo get_template_directory_uri() ?>/assets/img/right.svg" alt="right" class="img-fluid"></a>
                             </div>
                         </div>
                     </div>
@@ -114,7 +126,7 @@
                 <section class="platform">
                     <div class="info reverse">
                         <div class="info_image">
-                            <img src="assets/img/platform.svg" alt="flextwo" class="img-fluid">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/platform.svg" alt="flextwo" class="img-fluid">
                         </div>
                         <div class="info_text">
                             <div class="info_text_title">
