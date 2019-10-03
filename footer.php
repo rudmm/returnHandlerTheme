@@ -7,11 +7,23 @@
                     </a>
                 </div>
                 <div class="footer_menu">
-                    <ul class="menu">
-                        <li class="menu-item"><a href="#">Solution</a></li>
-                        <li class="menu-item"><a href="#">How it works</a></li>
-                        <li class="menu-item"><a href="#">Blog</a></li>
-                    </ul>
+                <?php wp_nav_menu( [
+                    'theme_location'  => 'bottom', 
+                    'container'       => null, 
+                    'container_class' => null, 
+                    'container_id'    => null,
+                    'menu_class'      => 'menu', 
+                    'menu_id'         => null,
+                    'echo'            => true,
+                    'fallback_cb'     => 'wp_page_menu',
+                    'before'          => '',
+                    'after'           => '',
+                    'link_before'     => '',
+                    'link_after'      => '',
+                    'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                    'depth'           => 0,
+                    'walker'          => '',
+                    ] ); ?>
                 </div>
                 <div class="copyright">
                     <span>@returnhandler 2019</span>

@@ -10,7 +10,15 @@
                             <div class="mbox">
                                 <div class="fixedblock">
                                     <div class="header_logo">
-                                        <a href="index.html"><img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.svg" alt="logo" class="img-fluid"></a>
+                                        <?php 
+                                        if( has_custom_logo( $blog_id ) ){
+                                            the_custom_logo();
+                                        }else{
+                                        ?>
+                                        <a href="<?php bloginfo('url'); ?>">
+                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.svg" alt="logo" class="img-fluid">
+                                        </a>
+                                        <?php }?>
                                     </div>
                                     <div class="btn-menu">
                                         <span></span>
@@ -150,7 +158,7 @@
                         <h2>Tailer-made smart compensation <br> to the customer</h2>
                     </div>
                     <div class="phone_image">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/solution/phone.png" alt="phone" class="img-fluid">
+                        <video src="<?php echo get_template_directory_uri() ?>/assets/img/solution/phone.mp4" playsinline loop muted autoplay></video>
                     </div>
                 </section>
 
@@ -165,9 +173,16 @@
                             <h2>I have some questions</h2>
                         </div>
                         <div class="questions-list">
+                            <?php
+                            $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                            $args = array('posts_per_page' => 0, 'paged' => $page, 'post_type' => 'questions');
+                            query_posts($args);
+                            ?>
+                            <?php if (have_posts()) : ?>
+                            <?php while (have_posts()) : the_post(); ?>
                             <div class="list-item">
                                 <div class="question">
-                                    <h4>How can I prevent customers from abusing ReturnHandler with false returns?</h4>
+                                    <h4><?php the_title(); ?></h4>
                                     <div class="circle">
                                         <span class="arrow-lines"><span class="arrow-line left"></span><span class="arrow-line right"></span></span>
                                     </div>
@@ -177,54 +192,13 @@
                                 </div>
                                 
                                 <div class="answer">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <?php the_content(); ?>
                                 </div>
                             </div>
-                            <div class="list-item">
-                                <div class="question">
-                                    <h4>Why customers should to with the items instead of returning it?</h4>
-                                    <div class="circle">
-                                        <span class="arrow-lines"><span class="arrow-line left"></span><span class="arrow-line right"></span></span>
-                                    </div>
-                                </div>
-                                <div class="wrapper_line">
-                                    <div class="answer_line"></div>
-                                </div>
-                                
-                                <div class="answer">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                </div>
-                            </div>
-                            <div class="list-item">
-                                <div class="question">
-                                    <h4>How does the compensation amount is calculated?</h4>
-                                    <div class="circle">
-                                        <span class="arrow-lines"><span class="arrow-line left"></span><span class="arrow-line right"></span></span>
-                                    </div>
-                                </div>
-                                <div class="wrapper_line">
-                                    <div class="answer_line"></div>
-                                </div>
-                                
-                                <div class="answer">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                </div>
-                            </div>
-                            <div class="list-item">
-                                <div class="question">
-                                    <h4>Can ReturnHandler increase the return rate instead of decreasing it?</h4>
-                                    <div class="circle">
-                                        <span class="arrow-lines"><span class="arrow-line left"></span><span class="arrow-line right"></span></span>
-                                    </div>
-                                </div>
-                                <div class="wrapper_line">
-                                    <div class="answer_line"></div>
-                                </div>
-                                    
-                                <div class="answer">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                </div>
-                            </div>   
+                            <?php
+                                endwhile;
+                                endif;
+                            ?>  
                         </div>
                         <div class="btn btn-questions"><a href="#">Request a Free Invite</a></div>  
                     </div>

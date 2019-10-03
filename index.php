@@ -5,7 +5,15 @@
                             <div class="mbox">
                                 <div class="fixedblock">
                                     <div class="header_logo">
-                                        <?php the_custom_logo(); ?>
+                                    <?php 
+                                        if( has_custom_logo( $blog_id ) ){
+                                            the_custom_logo();
+                                        }else{
+                                        ?>
+                                        <a href="<?php bloginfo('url'); ?>">
+                                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.svg" alt="logo" class="img-fluid">
+                                        </a>
+                                        <?php }?>
                                     </div>
                                     <div class="btn-menu">
                                         <span></span>
@@ -73,7 +81,7 @@
             <!-- main-->
             <main>
                 <!--begin first section-->
-                <section class="infosection">
+                <section class="infosection col">
                     <div class="info">
                         <div class="info_image">
                             <img src="<?php echo get_template_directory_uri() ?>/assets/img/flexone.svg" alt="flexone" class="img-fluid">

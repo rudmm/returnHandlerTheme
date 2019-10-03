@@ -25,6 +25,7 @@ function add_scripts(){
 	wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js');
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', 'jquery' );
+    wp_enqueue_script('scrollreveal', 'https://unpkg.com/scrollreveal');
 }
 
 //########################################################################################################################
@@ -45,25 +46,64 @@ add_action('after_setup_theme', 'theme_register_nav_menu');
 
 function theme_register_nav_menu(){
     register_nav_menu('top', 'Top menu');
+    register_nav_menu('bottom', 'Footer menu');
 }
 
 //#######################################################################################################################
 
 //add svg types image
 
-add_filter( 'upload_mimes', 'upload_allow_types' );
-add_filter( 'wp_check_filetype_and_ext', 'upload_allow_types' );
-function upload_allow_types( $mimes ) {
-  // разрешаем новые типы
-  $mimes['svg']  = 'image/svg+xml';
-  $mimes['doc']  = 'application/msword';
-  $mimes['woff'] = 'font/woff';
-  $mimes['psd']  = 'image/vnd.adobe.photoshop';
-  $mimes['djv']  = 'image/vnd.djvu';
-  $mimes['djvu'] = 'image/vnd.djvu';
-
-  return $mimes;
-}
+function cc_mime_types($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+  }
+  add_filter('upload_mimes', 'cc_mime_types');
     
 
-//#################################################
+//#############################################################################################################################
+
+//add thumnails to post
+
+add_action('after_setup_theme', 'post_thumbnail');
+
+function post_thumbnail(){
+    add_theme_support( 'post-thumbnails', array( 'post') ); 
+}
+
+//##########################################################################################################################
+
+//register post types
+
+add_action('init', 'register_post_types');
+
+function register_post_types(){
+    $labels = array(
+		'name'               => 'Questions', // primary name for record type
+		'singular_name'      => 'Questions', // name for one entry of this type
+		'add_new'            => 'Add question', // to add a new entry
+		'add_new_item'       => 'Adding question', // header of the newly created entry in the admin panel
+		'edit_item'          => 'Edit question', // to edit record type
+		'new_item'           => 'New question', // text of new entry
+		'view_item'          => 'Watch question', // to view entries of this type
+		'search_items'       => 'Search for questions among all.', // to search for these record types
+		'not_found'          => 'Not found', // if nothing was found in the search result
+		'not_found_in_trash' => 'Not found in trash', // if not found in trash
+		'parent_item_colon'  => '', 
+		'menu_name'          => 'Questions', // menu name
+	);
+	$args = array(
+		'labels' 	  	=> $labels,
+		'public' 	  	=> true,
+		'show_ui' 	  	=> true, // show interface in admin panel
+		'has_archive' 	=> true,
+		'description' 	=> 'Questions', 
+		'menu_icon'   	=> 'dashicons-format-status', 
+		'menu_position' => 4, 
+		'supports' 		=> array( 'title', 'editor'),
+		'taxonomy' 		=> [],
+		
+	);
+	register_post_type('questions', $args);
+}
+
+//#######################################################################################################################

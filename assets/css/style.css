@@ -210,6 +210,10 @@ main .section-title > * {
       width: 100%;
       max-width: 1230px;
       height: 100%; }
+  .header .wp_custom .bg {
+    top: 72px; }
+  .header .wp_custom .fixed {
+    top: 32px; }
   .header .mbox {
     width: 100%;
     max-width: 1230px;
@@ -450,8 +454,8 @@ main .section-title > * {
       top: 50px;
       left: 235px;
       z-index: 8;
-      -webkit-animation: my-animation 1s ease infinite;
-      animation: my-animation 1s ease infinite; }
+      -webkit-animation: my-animation 2s ease infinite;
+      animation: my-animation 2s ease infinite; }
     .header .top-image .element2 {
       left: 480px;
       top: 140px;
@@ -489,13 +493,19 @@ main .section-title > * {
       transform: translateX(-50%); }
     .solution .top-image .map {
       top: 140px;
-      left: 160px; }
+      left: 160px;
+      -webkit-animation: my-animation 3s ease infinite;
+      animation: my-animation 3s ease infinite; }
     .solution .top-image .star {
       right: 165px;
-      top: 45px; }
+      top: 45px;
+      -webkit-animation: my-animation 4s ease infinite;
+      animation: my-animation 4s ease infinite; }
     .solution .top-image .love {
       right: 140px;
-      top: 200px; }
+      top: 200px;
+      -webkit-animation: my-animation 2s ease infinite;
+      animation: my-animation 2s ease infinite; }
 
 .works {
   background: #563280 0% 0% no-repeat padding-box; }
@@ -505,19 +515,29 @@ main .section-title > * {
     top: 150px; }
     .works .top-image .work1 {
       right: 310px;
-      top: 340px; }
+      top: 340px;
+      -webkit-animation: my-animation 3s ease infinite;
+      animation: my-animation 3s ease infinite; }
     .works .top-image .bar {
       right: 240px;
-      top: -50px; }
+      top: -50px;
+      -webkit-animation: my-animation 4s ease infinite;
+      animation: my-animation 4s ease infinite; }
     .works .top-image .speech {
       top: 30px;
-      right: 400px; }
+      right: 400px;
+      -webkit-animation: my-animation 2s ease infinite;
+      animation: my-animation 2s ease infinite; }
     .works .top-image .grafic {
       top: 70px;
-      left: 90px; }
+      left: 90px;
+      -webkit-animation: my-animation 3s ease infinite;
+      animation: my-animation 3s ease infinite; }
     .works .top-image .work2 {
       top: 170px;
-      left: 370px; }
+      left: 370px;
+      -webkit-animation: my-animation 4s ease infinite;
+      animation: my-animation 4s ease infinite; }
 
 .blog {
   padding: 0;
@@ -527,6 +547,10 @@ main .section-title > * {
     background: #032e61;
     height: 63px;
     top: 0; }
+  .blog .wp_custom .bg {
+    top: 32px; }
+  .blog .wp_custom .fixed {
+    top: 32px; }
 
 .btn-blog {
   background: #3a46d8;
@@ -590,7 +614,15 @@ main .section-title > * {
         text-transform: uppercase;
         color: #ffffff;
         display: inline-block;
-        margin-left: 10px; }
+        margin-left: 10px;
+        -webkit-transition: .3s;
+        -o-transition: .3s;
+        transition: .3s; }
+      .posts .headerblock .blog_categories a:hover {
+        opacity: .5;
+        -webkit-transition: .3s;
+        -o-transition: .3s;
+        transition: .3s; }
   .posts .postsblock {
     margin-top: -35px; }
     .posts .postsblock .row {
@@ -619,6 +651,9 @@ main .section-title > * {
         font-size: 24px;
         line-height: 29px;
         color: #3d466e; }
+      .posts .postsblock .post_image a img {
+        max-width: 100%;
+        height: auto; }
     .posts .postsblock .post:last-of-type {
       margin-right: 0; }
 
@@ -754,25 +789,33 @@ main .section-title > * {
       transform: translate(-50%, -50%); }
     .brain .animate .lefttoptext {
       left: 270px;
-      top: 143px; }
+      top: 143px;
+      -webkit-animation: my-animation 3s ease infinite;
+      animation: my-animation 3s ease infinite; }
     .brain .animate .rightbottom {
       top: 120px;
       left: 790px; }
     .brain .animate .righttoptext {
       left: 1155px;
-      top: 105px; }
+      top: 105px;
+      -webkit-animation: my-animation 4s ease infinite;
+      animation: my-animation 4s ease infinite; }
     .brain .animate .leftbottom {
       left: 1270px;
       top: 380px; }
     .brain .animate .rightbottomtext {
       left: 1155px;
-      bottom: 106px; }
+      bottom: 106px;
+      -webkit-animation: my-animation 2s ease infinite;
+      animation: my-animation 2s ease infinite; }
     .brain .animate .lefttop {
       left: 1270px;
       bottom: 320px; }
     .brain .animate .leftbottomtext {
       left: 360px;
-      bottom: 106px; }
+      bottom: 106px;
+      -webkit-animation: my-animation 2s ease infinite;
+      animation: my-animation 2s ease infinite; }
     .brain .animate .righttop {
       left: 500px;
       bottom: 360px; }
@@ -899,7 +942,8 @@ main .section-title > * {
         line-height: 19px;
         letter-spacing: 0;
         color: #ffffff;
-        opacity: 1; }
+        opacity: 1;
+        padding: 10px; }
       .info_text_btn a img {
         margin-left: 10px; }
     .info_text_btn:hover {
@@ -1004,10 +1048,12 @@ main .section-title > * {
   .phone .phone_image {
     text-align: center;
     vertical-align: bottom; }
-    .phone .phone_image img {
+    .phone .phone_image video {
       -webkit-transform: translateX(-15%);
       -ms-transform: translateX(-15%);
-      transform: translateX(-15%); }
+      transform: translateX(-15%);
+      max-width: 40%;
+      height: auto; }
 
 .questions {
   padding: 140px 0;
@@ -1453,10 +1499,18 @@ main .section-title > * {
       font-size: 22px;
       line-height: 30px;
       margin-bottom: 40px; }
+    .header .wp_custom .bg {
+      top: 86px; }
+    .header .wp_custom .fixed {
+      top: 46px; }
   .works {
     min-height: 600px; }
   .blog {
     min-height: 63px; }
+    .blog .wp_custom .bg {
+      top: 46px; }
+    .blog .wp_custom .fixed {
+      top: 46px; }
   .info {
     margin-top: 50px;
     margin-bottom: 50px; }
