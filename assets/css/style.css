@@ -250,6 +250,11 @@ main .section-title > * {
     color: #929afa;
     opacity: 1;
     color: #fff; }
+    .header_logo img {
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      max-height: 45px; }
     .header_logo_custom {
       opacity: 0.5; }
   .header_menu {
@@ -1323,7 +1328,11 @@ main .section-title > * {
       display: -ms-flexbox;
       display: flex; }
     .footer .footer_logo img {
-      margin-bottom: -5px; }
+      margin-bottom: -5px;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      max-height: 45px; }
   .footer .footer_menu {
     display: inline-block; }
     .footer .footer_menu .menu {

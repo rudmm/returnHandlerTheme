@@ -236,6 +236,12 @@ main .section-title > * {
     color: #929afa;
     opacity: 1;
     color: #fff;
+    img{
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      max-height: 45px;
+    }
     &_custom {
       opacity: 0.5;
     }
@@ -1359,6 +1365,10 @@ main .section-title > * {
     }
     img {
       margin-bottom: -5px;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      max-height: 45px;
     }
   }
   .footer_menu {

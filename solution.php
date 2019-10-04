@@ -10,9 +10,11 @@
                             <div class="mbox">
                                 <div class="fixedblock">
                                     <div class="header_logo">
-                                        <?php 
-                                        if( has_custom_logo( $blog_id ) ){
-                                            the_custom_logo();
+                                    <?php 
+                                        if( has_custom_header( $blog_id ) ){ ?>
+                                        <a href="<?php bloginfo('url'); ?>"> <?php
+                                            the_custom_header_markup(); ?>
+                                            </a> <?php
                                         }else{
                                         ?>
                                         <a href="<?php bloginfo('url'); ?>">

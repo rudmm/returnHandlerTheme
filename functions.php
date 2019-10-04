@@ -35,6 +35,22 @@ function add_scripts(){
 add_action('after_setup_theme', 'theme_custom_logo');
 
 function theme_custom_logo(){
+	add_theme_support( 'custom-header', array(
+		'default-image'          => '',
+		'random-default'         => false,
+		'width'                  => 0,
+		'height'                 => 0,
+		'flex-height'            => false,
+		'flex-width'             => false,
+		'default-text-color'     => '', // вызывается функций get_header_textcolor()
+		'header-text'            => true,
+		'uploads'                => true,
+		'wp-head-callback'       => '',
+		'admin-head-callback'    => '',
+		'admin-preview-callback' => '',
+		'video'                  => false, // с 4.7
+		'video-active-callback'  => 'is_front_page', // с 4.7
+	) );
 	add_theme_support( 'custom-logo' );
 }
 

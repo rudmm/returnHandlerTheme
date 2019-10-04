@@ -2,9 +2,15 @@
 
 <footer class="footer">
                 <div class="footer_logo">
-                    <a href="#">
-                        <img src="assets/img/logo_footer.svg" alt="logo_footer" class="img-fluid">
-                    </a>
+                <?php 
+                if( has_custom_logo( $blog_id ) ){
+                the_custom_logo();
+                }else{
+                ?>
+                <a href="<?php bloginfo('url'); ?>">
+                    <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo_footer.svg" alt="logo" class="img-fluid">
+                </a>
+                <?php }?>
                 </div>
                 <div class="footer_menu">
                 <?php wp_nav_menu( [
