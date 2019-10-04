@@ -7,16 +7,16 @@ jQuery(function($){
 			'page' : current_page
 		};
 		$.ajax({
-			url:ajaxurl, // обработчик
-			data:data, // данные
-			type:'POST', // тип запроса
+			url:ajaxurl,
+			data:data, 
+			type:'POST', 
 			success:function(data){
 				if( data ) { 
-					$('.load-btn .btn-blog').text('Load More').before(data); // вставляем новые посты
-					current_page++; // увеличиваем номер страницы на единицу
-					if (current_page == max_pages) $(".load-btn .btn-blog").remove(); // если последняя страница, удаляем кнопку
+					$('.load-btn .btn-blog').text('Load More').before(data); 
+					current_page++; 
+					if (current_page == max_pages) $(".load-btn .btn-blog").remove(); 
 				} else {
-					$('.load-btn .btn-blog').remove(); // если мы дошли до последней страницы постов, скроем кнопку
+					$('.load-btn .btn-blog').remove(); 
 				}
 			}
 		});

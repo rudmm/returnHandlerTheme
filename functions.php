@@ -131,12 +131,10 @@ function register_post_types(){
 function true_load_posts(){
  
 	$args = unserialize( stripslashes( $_POST['query'] ) );
-	$args['paged'] = $_POST['page'] + 1; // следующая страница
+	$args['paged'] = $_POST['page'] + 1; 
 	$args['post_status'] = 'publish';
  
-	// обычно лучше использовать WP_Query, но не здесь
 	query_posts( $args );
-	// если посты есть
 	$i=1; ?>
 	<div class="postsblock" id="loadposts">
 	<div class="mbox"> <?php
