@@ -138,6 +138,7 @@ section {
   }
 }
 
+
 main .section-title > * {
   font-family: "Montserrat";
   font-weight: 900;
@@ -743,18 +744,21 @@ main .section-title > * {
       line-height: 27px;
       color: #3d466e;
       margin-bottom: 50px;
-    }
-    .image {
-      margin-bottom: 40px;
-    }
-    .title {
-      font-family: "Montserrat";
+      img{
+        margin-bottom: 40px;
+      }
+      .wp-block-image{
+        margin: 0;
+      }
+      h2,h3,h4{
+        font-family: "Montserrat";
       font-style: normal;
       font-weight: 400;
       font-size: 36px;
       line-height: 44px;
       color: #3d466e;
       margin-bottom: 10px;
+      }
     }
     .share span {
       display: inline-flex;
@@ -1580,14 +1584,6 @@ main .section-title > * {
         margin-bottom: 40px;
       }
     }
-    .wp_custom{
-      .bg{
-        top: 86px;
-      }
-      .fixed{
-        top: 46px;
-      }
-    }
   }
 
   .works {
@@ -1598,10 +1594,10 @@ main .section-title > * {
     min-height: 63px;
     .wp_custom{
       .bg{
-        top: 46px;
+        top: 32px;
       }
       .fixed{
-        top: 46px;
+        top: 32px;
       }
     }
   }
@@ -1990,10 +1986,12 @@ main .section-title > * {
 
   .single{
       .box{
-          .title{
-              font-size: 30px;
-              line-height: 34px;
+        .single_content{
+          h2,h3,h4{
+            font-size: 30px;
+            line-height: 34px;
           }
+        }
       }
   }
 
@@ -2144,6 +2142,15 @@ main .section-title > * {
         }
       }
     }
+
+    .wp_custom{
+      .bg{
+        top: 86px;
+      }
+      .fixed{
+        top: 46px;
+      }
+    }
     .header_logo {
       width: 250px;
       font-size: 0;
@@ -2185,6 +2192,15 @@ main .section-title > * {
 
   .blog {
     min-height: 50px;
+
+    .wp_custom{
+      .bg{
+        top: 46px;
+      }
+      .fixed{
+        top: 46px;
+      }
+    }
   }
 
   //end header styles
@@ -2384,10 +2400,12 @@ main .section-title > * {
         .mbox {
             padding: 0 10px;
             .box{
-                .title{
-                    font-size: 27px;
+              .single_content{
+                h2,h3,h4{
+                  font-size: 27px;
                     line-height: 30px;
                 }
+              }
             }
         }
     }
@@ -2528,7 +2546,11 @@ main .section-title > * {
     }
   }
 }
-
+@media screen and (max-width: 600px){
+  #wpadminbar{
+    position: fixed;
+  }
+}
 @media screen and (max-width: 480px) {
   main .section-title > * {
     font-size: 20px;
@@ -2579,9 +2601,9 @@ main .section-title > * {
               font-size: 14px;
               line-height: 21px;
               margin-bottom: 20px;
-          }
-          .image{
-              margin-bottom: 20px;
+              img{
+                margin-bottom: 20px;
+              }
           }
           .share{
               flex-direction: column-reverse;

@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<?php the_post(); ?>
 
 <header class="header blog">
                         <header>
@@ -60,43 +61,40 @@
             <main>
                 <section class="single">
                     <div class="thumbnail">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/blog/post4.png" alt="thumbnail">
+                    <?php if(has_post_thumbnail()){ the_post_thumbnail(); }else{?> <img src="<?php echo get_template_directory_uri() ?>/assets/img/blog/post.webp" alt=""> <?php  } ?>
                     </div>
                     <div class="mbox">
                         <div class="box">
                             <div class="date_categories">
-                                <span>SEP 16 • NEWS</span>
+                                <span><?php the_time('M j') ?> • <?php the_category(' ','','') ?></span>
                             </div>
                             <div class="single_title section-title">
-                                <h1>Sed ut perspiciatis unde omnis iste natus error</h1>
+                                <h1><?php the_title(); ?></h1>
                             </div>
                             <div class="single_content">
-                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                            </div>
-                            <div class="image">
-                                <img src="<?php echo get_template_directory_uri() ?>/assets/img/blog/post5.png" alt="post" class="img-fluid"> 
-                            </div>
-                            <div class="title">
-                                <h2>Perspiciatis unde </h2>
-                            </div>
-                            <div class="single_content">
-                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliqua.</p>
+                                <?php the_content(); ?>
                             </div>
                             <div class="share">
-                                <span>Share: 
-                                    <a href="#">
+                                <span>Share:
+                                    <?php
+                                    $text = get_the_title();
+                                    $url = get_page_link();
+                                    $summary = get_the_excerpt();
+                                    $image_url = get_the_post_thumbnail_url();
+                                    ?> 
+                                    <a href="http://www.facebook.com/sharer.php?s=100&p[url]=<?php echo urlencode( $url ); ?>&p[title]=<?php echo $title ?>&p[summary]=<?php echo $summary ?>&p[images][0]=<?php echo $image_url ?>" onclick="window.open(this.href, this.title, 'toolbar=0, status=0, width=548, height=325'); return false" target="_parent">
                                         <img src="<?php echo get_template_directory_uri() ?>/assets/img/blog/facebook.svg" alt="facebook">
                                     </a>
-                                    <a href="#">
+                                    <a href="http://twitter.com/share?text=<?php echo $text ?>&url=<?php echo urlencode($url) ?>" onclick="window.open(this.href, this.title, 'toolbar=0, status=0, width=548, height=325'); return false" target="_parent">
                                         <img src="<?php echo get_template_directory_uri() ?>/assets/img/blog/twitter.svg" alt="twitter">
                                     </a>
-                                    <a href="#">
+                                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode( $url ); ?>&title=<?php echo $title ?>&summary=<?php echo $summary ?>&source=<?php echo $title ?>" onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
                                         <img src="<?php echo get_template_directory_uri() ?>/assets/img/blog/linkedin-logo.svg" alt="linkedin-logo">
                                     </a>
                                 </span>
                                 <span class="buttons">
-                                    <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/img/blog/prev.svg" alt="">Prev</a>
-                                    <a href="#">Next <img src="<?php echo get_template_directory_uri() ?>/assets/img/blog/next.svg" alt=""></a>
+                                    <?php previous_post_link('%link','<img src="<?php echo get_template_directory_uri() ?>/assets/img/blog/prev.svg" alt="">Prev '); ?>
+                                    <?php next_post_link('%link','Next <img src="<?php echo get_template_directory_uri() ?>/assets/img/blog/next.svg" alt="">'); ?>
                                 </span>
                             </div>
                         </div>
@@ -104,4 +102,7 @@
                 </section>
             </main>
             <!--end main-->
+            <script>
+                let theme_location = '<?php echo get_template_directory_uri(); ?>';
+            </script>
 <?php get_footer() ?>

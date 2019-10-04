@@ -4,7 +4,7 @@
  */
 ?>
 <?php get_header(); ?>
-<header class="header blog">
+<header class="header blog" id="blog">
                         <header>
                             <div class="bg">
                                 <div class="mbox">
@@ -116,7 +116,7 @@
                                 <div class="row">
                             <?php } ?>
                             <div class="post">
-                                <div class="post_image"><a href="<?php the_permalink() ?>"><?php the_post_thumbnail(); ?></a></div>
+                                <div class="post_image"><a href="<?php the_permalink() ?>"><?php if(has_post_thumbnail()){ the_post_thumbnail(); }else{?> <img src="<?php echo get_template_directory_uri() ?>/assets/img/blog/post.webp" alt=""> <?php  } ?></a></div>
                                 <div class="post_date"><span><?php the_time('M j')?> • <?php the_category(' ','',''); ?></span></div>
                                 <div class="post_title"><h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3></div>
                             </div>

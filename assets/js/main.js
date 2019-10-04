@@ -144,6 +144,13 @@ function scrollReveal(){
     });
 }
 
+function buttonsNavigation(){
+    let prev = $('.share .buttons a[rel="prev"]');
+    let next = $('.share .buttons a[rel="next"]');
+    prev.html('<img src="'+ theme_location + '/assets/img/blog/prev.svg" alt="">Prev ');
+    next.html('Next <img src="'+ theme_location + '/assets/img/blog/next.svg" alt="">');
+}
+
 $(window).scroll(function(){
     menu();
     wp_admin_menu_position();
@@ -157,6 +164,7 @@ $(document).ready(function(){
     resizeBrain();
     wp_admin_menu_position();
     scrollReveal();
+    buttonsNavigation();
 });
 
 $(window).resize(function () {
