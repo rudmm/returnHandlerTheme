@@ -606,6 +606,8 @@ main .section-title > * {
 
 .posts {
   margin-top: 0px; }
+  .posts #loadposts {
+    margin-top: 0; }
   .posts .headerblock {
     background: #1b498e; }
     .posts .headerblock .mbox {

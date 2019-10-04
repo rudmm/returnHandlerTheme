@@ -127,14 +127,24 @@
                             ?>
 
                             <?php endwhile;
-                            if($i!=3){ ?>
+                            if($i<4){ ?>
                                 </div>
                             <?php } ?>
                             <?php endif; ?>
-                            <div class="load-btn">
-                                <button class="btn btn-blog">Load More</button>
-                            </div>
                         </div>
+
+
+                        <?php if (  $wp_query->max_num_pages > 1 ) : ?>
+                                <script>
+                                let ajaxurl = '<?php echo site_url() ?>/wp-admin/admin-ajax.php';
+                                let true_posts = '<?php echo serialize($wp_query->query_vars); ?>';
+                                let current_page = <?php echo (get_query_var('paged')) ? get_query_var('paged') : 1; ?>;
+                                let max_pages = '<?php echo $wp_query->max_num_pages; ?>';
+                                </script>
+                                <div class="load-btn">
+                                    <button class="btn btn-blog">Load More</button>
+                                </div>
+                            <?php endif; ?>
                     </div>
                 </section>
             </main>

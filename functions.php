@@ -25,7 +25,8 @@ function add_scripts(){
 	wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js');
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', 'jquery' );
-    wp_enqueue_script('scrollreveal', 'https://unpkg.com/scrollreveal');
+	wp_enqueue_script('scrollreveal', 'https://unpkg.com/scrollreveal');
+	wp_enqueue_script( 'load', get_template_directory_uri() . '/assets/js/load.js', 'jquery', time() );
 }
 
 //########################################################################################################################
@@ -69,11 +70,12 @@ function theme_register_nav_menu(){
 
 //add svg types image
 
-function cc_mime_types($mimes) {
-    $mimes['svg'] = 'image/svg+xml';
-    return $mimes;
-  }
-  add_filter('upload_mimes', 'cc_mime_types');
+add_filter('upload_mimes', 'add_csv_type');
+
+function add_csv_type($mimes){
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
     
 
 //#############################################################################################################################
@@ -123,3 +125,48 @@ function register_post_types(){
 }
 
 //#######################################################################################################################
+
+//load more 
+
+function true_load_posts(){
+ 
+	$args = unserialize( stripslashes( $_POST['query'] ) );
+	$args['paged'] = $_POST['page'] + 1; // следующая страница
+	$args['post_status'] = 'publish';
+ 
+	// обычно лучше использовать WP_Query, но не здесь
+	query_posts( $args );
+	// если посты есть
+	$i=1; ?>
+	<div class="postsblock" id="loadposts">
+	<div class="mbox"> <?php
+    if ( have_posts() ) : while ( have_posts() ) : the_post();  
+    	if($i==1){?>
+        <div class="row">
+        <?php } ?>
+        	<div class="post">
+            	<div class="post_image"><a href="<?php the_permalink() ?>"><?php the_post_thumbnail(); ?></a></div>
+                <div class="post_date"><span><?php the_time('M j')?> • <?php the_category(' ','',''); ?></span></div>
+                <div class="post_title"><h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3></div>
+            </div>
+        <?php if($i==3){ $i=0; ?>
+        </div>
+        <?php } 
+        $i++;
+        ?>
+        <?php endwhile;
+        if($i!=3){ ?>
+        </div>
+        <?php } ?>
+		<?php endif;
+		?>
+		</div>
+		</div><?php 
+	die();
+}
+ 
+ 
+add_action('wp_ajax_loadmore', 'true_load_posts');
+add_action('wp_ajax_nopriv_loadmore', 'true_load_posts');
+
+//############################################################################################################################
