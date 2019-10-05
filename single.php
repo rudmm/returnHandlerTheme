@@ -61,7 +61,7 @@
             <main>
                 <section class="single">
                     <div class="thumbnail">
-                    <?php if(has_post_thumbnail()){ the_post_thumbnail(); }else{?> <img src="<?php echo get_template_directory_uri() ?>/assets/img/blog/post.webp" alt=""> <?php  } ?>
+                    <?php if(has_post_thumbnail()){ the_post_thumbnail(); }else{?> <img src="<?php echo get_template_directory_uri() ?>/assets/img/blog/post.jpg" alt=""> <?php  } ?>
                     </div>
                     <div class="mbox">
                         <div class="box">
@@ -102,7 +102,5 @@
                 </section>
             </main>
             <!--end main-->
-            <script>
-                let theme_location = '<?php echo get_template_directory_uri(); ?>';
-            </script>
+            
 <?php get_footer() ?>

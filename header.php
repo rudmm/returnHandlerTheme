@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ReturnHandler</title>
     <?php wp_head(); ?>
+    <script>
+        let adminUrl = '<?php echo admin_url('admin-ajax.php?action=send_mail'); ?>';
+    </script>
 </head>
 <body>
     <div class="global-wrapper">
@@ -18,11 +21,11 @@
                     <div class="form-title">
                         <h1>Easy integration, <br> no credit card. <br> <br><span>6 months for free!</span></h1>
                     </div>
-                    <form action="">
+                    <form id="form_connect" action="" method="post">
                         <label for="name">Name<span>*</span></label>
-                        <input type="text" id="name" placeholder="What’s your full name?">
+                        <input required type="text" id="name" placeholder="What’s your full name?">
                         <label for="email">Email<span>*</span></label>
-                        <input type="email" id="email" placeholder="you@example.com">
+                        <input required type="email" id="email" placeholder="you@example.com">
                         <label for="website">Website</label>
                         <input type="text" id="website" placeholder="https://example.com">
                         <label for="platform">Platform</label>
@@ -33,9 +36,13 @@
                             <option value="woo commerce" >Woo commerce</option>
                             <option value="other" >Other</option>
                         </select>
-                        <label for="comments">Comments</label>
-                        <textarea name="" id="comments" cols="" rows="" placeholder="Please type here…."></textarea>
-                        <button>Request Free Invite</button>
+                        <label for="comment">Comments</label>
+                        <textarea name="" id="comment" cols="" rows="" placeholder="Please type here…."></textarea>
+                        <div class="success">
+                        <button class="submit-js">Request Free Invite</button>
+                        
+                        </div>
+                        
                     </form>
                 </div>
             </section>

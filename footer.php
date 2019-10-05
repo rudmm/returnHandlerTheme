@@ -37,7 +37,9 @@
             </footer>
         </div>
     </div>
-    
+    <script>
+                let theme_location = '<?php echo get_template_directory_uri(); ?>';
+            </script>
     <?php wp_footer(); ?>
 </body>
 </html>

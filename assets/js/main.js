@@ -1,6 +1,6 @@
 function menu(){
-    let scroll = $(window).scrollTop();
-    let header = $('.header header .bg');
+    let scroll = jQuery(window).scrollTop();
+    let header = jQuery('.header header .bg');
     if(scroll>0){
         header.addClass('fixed');
     }else{
@@ -9,10 +9,10 @@ function menu(){
 }
 
 function clickBurger(){
-    let btn = $('.btn-menu');
-    let navbar = $('.navbar');
-    let header = $('.header header .bg');
-    let fixedblock = $('.header header .fixedblock');
+    let btn = jQuery('.btn-menu');
+    let navbar = jQuery('.navbar');
+    let header = jQuery('.header header .bg');
+    let fixedblock = jQuery('.header header .fixedblock');
     btn.click(function(){
         
         btn.prev().toggleClass('openlogo');
@@ -26,12 +26,11 @@ function clickBurger(){
 }
 
 function answerOpen(){
-    let btn = $('.question .circle');
+    let btn = jQuery('.question .circle');
     for(let i=0;i<btn.length;i++){
         btn.eq(i).click(function(){
             let lines = btn.eq(i).children('.arrow-lines');
             let answer = btn.eq(i).parents('.list-item').find('.answer');
-            console.log(answer);
             let answerLine = btn.eq(i).parents('.list-item').find('.answer_line');
             lines.toggleClass('open');
             answer.slideToggle();
@@ -41,8 +40,8 @@ function answerOpen(){
 }
 
 function resize() {
-    let $image = $(".image_animate");
-    let $wrapper = $(".top-image");
+    let $image = jQuery(".image_animate");
+    let $wrapper = jQuery(".top-image");
     let basWidth = 929;
     let basHeight = 629;
     let transformRule = '';
@@ -50,7 +49,7 @@ function resize() {
     let scale = Math.min($wrapper.width() / basWidth, wrapperHeight / basHeight);
     let realyHeightImage = $image.height()/(Math.max(basWidth/ $wrapper.width() , basHeight /wrapperHeight  )); 
     let procentTranslateY = 50;
-    let windowWidth = $(window).outerWidth();
+    let windowWidth = jQuery(window).outerWidth();
     if(windowWidth>768){ 
         procentTranslateY = (100 - realyHeightImage/( wrapperHeight/100))/2 +50;
     }
@@ -62,7 +61,7 @@ function resize() {
 }
 
 function sizeImageBlock(){
-    let imageBlock = $('.infoflex .image_block');
+    let imageBlock = jQuery('.infoflex .image_block');
     let imageSize = [];
     for(let i=0;i<imageBlock.length;i++){
         imageSize.push(imageBlock.eq(i).height());
@@ -80,8 +79,8 @@ function sizeImageBlock(){
 }
 
 function resizeBrain(){
-    let $image = $(".animate");
-    let $wrapper = $(".brain-image");
+    let $image = jQuery(".animate");
+    let $wrapper = jQuery(".brain-image");
     let basWidth = 1920;
     let basHeight = 1048;
     let transformRule = '';
@@ -92,7 +91,7 @@ function resizeBrain(){
     //let procentTranslateY = (100 - realyHeightImage/( wrapperHeight/100))/2 +50;
     transformRule = "translate(-50%, -"+50+"%) scale(" + scale + ")";
     let height = basHeight*scale;
-    let section = $('.brain');
+    let section = jQuery('.brain');
     let margin = 430;
     $wrapper.css({
         height : height
@@ -109,9 +108,9 @@ function resizeBrain(){
 }
 
 function wp_admin_menu_position(){
-    let wpAdmin = $('#wpadminbar');
+    let wpAdmin = jQuery('#wpadminbar');
     if(wpAdmin.length){
-        let bgblock = $('header .bg');
+        let bgblock = jQuery('header .bg');
         bgblock.parent().addClass('wp_custom');
     }
 }
@@ -145,18 +144,18 @@ function scrollReveal(){
 }
 
 function buttonsNavigation(){
-    let prev = $('.share .buttons a[rel="prev"]');
-    let next = $('.share .buttons a[rel="next"]');
+    let prev = jQuery('.share .buttons a[rel="prev"]');
+    let next = jQuery('.share .buttons a[rel="next"]');
     prev.html('<img src="'+ theme_location + '/assets/img/blog/prev.svg" alt="">Prev ');
     next.html('Next <img src="'+ theme_location + '/assets/img/blog/next.svg" alt="">');
 }
 
-$(window).scroll(function(){
+jQuery(window).scroll(function(){
     menu();
     wp_admin_menu_position();
 });
 
-$(document).ready(function(){
+jQuery(document).ready(function(){
     clickBurger();
     resize();
     answerOpen();
@@ -167,12 +166,12 @@ $(document).ready(function(){
     buttonsNavigation();
 });
 
-$(window).resize(function () {
+jQuery(window).resize(function () {
     resize();
     resizeBrain();
     wp_admin_menu_position();
 });
-$(window).on("orientationchange", function () {
+jQuery(window).on("orientationchange", function () {
     resize();
     resizeBrain();
     wp_admin_menu_position();

@@ -106,8 +106,15 @@
                     <div class="postsblock">
                         <div class="mbox">
                             <?php
-                                $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                                query_posts("paged=$page");
+                            $current_page = (get_query_var('paged')) ? get_query_var('paged') : 1; // определяем текущую страницу блога
+                            $args = array(
+                                'posts_per_page' => get_option('posts_per_page'), // значение по умолчанию берётся из настроек, но вы можете использовать и собственное
+                                'paged'          => $current_page // текущая страница
+                            );
+                            query_posts( $args );
+                             
+                            $wp_query->is_archive = true;
+                            $wp_query->is_home = false;
                             ?>
                             <?php
                             $i=1;
@@ -116,7 +123,7 @@
                                 <div class="row">
                             <?php } ?>
                             <div class="post">
-                                <div class="post_image"><a href="<?php the_permalink() ?>"><?php if(has_post_thumbnail()){ the_post_thumbnail(); }else{?> <img src="<?php echo get_template_directory_uri() ?>/assets/img/blog/post.webp" alt=""> <?php  } ?></a></div>
+                                <div class="post_image"><a href="<?php the_permalink() ?>"><?php if(has_post_thumbnail()){ the_post_thumbnail(); }else{?> <img src="<?php echo get_template_directory_uri() ?>/assets/img/blog/post.jpg" alt=""> <?php  } ?></a></div>
                                 <div class="post_date"><span><?php the_time('M j')?> • <?php the_category(' ','',''); ?></span></div>
                                 <div class="post_title"><h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3></div>
                             </div>

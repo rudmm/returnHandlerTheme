@@ -1,6 +1,6 @@
 jQuery(function($){
-	$('.load-btn .btn-blog').click(function(){
-		$(this).text('Loading...'); 
+	jQuery('.load-btn .btn-blog').click(function(){
+		jQuery(this).text('Loading...'); 
 		let data = {
 			'action': 'loadmore',
 			'query': true_posts,
@@ -12,11 +12,11 @@ jQuery(function($){
 			type:'POST', 
 			success:function(data){
 				if( data ) { 
-					$('.load-btn .btn-blog').text('Load More').before(data); 
+					jQuery('.load-btn .btn-blog').text('Load More').before(data); 
 					current_page++; 
-					if (current_page == max_pages) $(".load-btn .btn-blog").remove(); 
+					if (current_page == max_pages) jQuery(".load-btn .btn-blog").remove(); 
 				} else {
-					$('.load-btn .btn-blog').remove(); 
+					jQuery('.load-btn .btn-blog').remove(); 
 				}
 			}
 		});

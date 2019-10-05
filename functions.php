@@ -172,3 +172,27 @@ add_action('wp_ajax_loadmore', 'true_load_posts');
 add_action('wp_ajax_nopriv_loadmore', 'true_load_posts');
 
 //############################################################################################################################
+
+//form connect
+
+add_action('wp_ajax_send_mail' , 'send_mail');
+add_action('wp_ajax_nopriv_send_mail', 'send_mail');
+function send_mail(){
+	$contactName = strip_tags($_POST['name']);
+	$contactEmail = $_POST['email'];
+	$contactSubject = 'returnHandler';
+	$website = strip_tags($_POST['website']) ;
+	$platform = strip_tags($_POST['platform']) ;
+	$comment = strip_tags($_POST['comment']);
+	$contactMessage = '<strong>Website: ' . $website . '</strong> <br /><br /> ' . '<strong>Platform: ' . $platform . '</strong> <br /><br />' . $comment;
+	$to = get_option('admin_email');
+	remove_all_filters( 'wp_mail_from' );
+	remove_all_filters( 'wp_mail_from_name' );
+	$headers = [
+		'From: ' . $contactName . ' <' . $contactEmail . '>',
+		'content-type: text/html',
+	];
+	wp_mail($to, $contactSubject, $contactMessage, $headers);
+	wp_die();
+}
+//###############################################################################################################################

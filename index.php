@@ -82,13 +82,6 @@
 
             <!-- main-->
             <main>
-            <?php
-            $mimetypes = wp_get_mime_types();
-
-            print_r( $mimetypes );
-            echo '<br>';
-            print_r($num = did_action( 'upload_mimes' ));
-            ?>
                 <!--begin first section-->
                 <section class="infosection col">
                     <div class="info">
