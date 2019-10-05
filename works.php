@@ -49,7 +49,7 @@
                                             ] ); ?>
                                         </div>
                                         <div class="header_btn">
-                                            <a href="form.html">Request Invite</a>
+                                            <a href="#myform">Request Invite</a>
                                         </div>
                                     </div>
                                 </div>

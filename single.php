@@ -45,7 +45,7 @@
                                             ] ); ?>
                                             </div>
                                             <div class="header_btn">
-                                                <a href="form.html">Request Invite</a>
+                                                <a href="#myform">Request Invite</a>
                                             </div>
                                         </div>
                                     </div>
@@ -93,8 +93,8 @@
                                     </a>
                                 </span>
                                 <span class="buttons">
-                                    <?php previous_post_link('%link','<img src="<?php echo get_template_directory_uri() ?>/assets/img/blog/prev.svg" alt="">Prev '); ?>
-                                    <?php next_post_link('%link','Next <img src="<?php echo get_template_directory_uri() ?>/assets/img/blog/next.svg" alt="">'); ?>
+                                    <?php previous_post_link('%link','Prev '); ?>
+                                    <?php next_post_link('%link','Next '); ?>
                                 </span>
                             </div>
                         </div>

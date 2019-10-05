@@ -43,7 +43,7 @@
                                             ] ); ?>
                                         </div>
                                         <div class="header_btn">
-                                            <a href="#">Request Invite</a>
+                                            <a href="#myform">Request Invite</a>
                                         </div>
                                     </div>
                                 </div>

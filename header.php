@@ -10,3 +10,32 @@
 <body>
     <div class="global-wrapper">
         <div class="mbox">
+        <section class="form" id="myform">
+                <div class="contact-form">
+                    <span class="close">
+                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/delete.svg" alt="close" >
+                    </span>
+                    <div class="form-title">
+                        <h1>Easy integration, <br> no credit card. <br> <br><span>6 months for free!</span></h1>
+                    </div>
+                    <form action="">
+                        <label for="name">Name<span>*</span></label>
+                        <input type="text" id="name" placeholder="What’s your full name?">
+                        <label for="email">Email<span>*</span></label>
+                        <input type="email" id="email" placeholder="you@example.com">
+                        <label for="website">Website</label>
+                        <input type="text" id="website" placeholder="https://example.com">
+                        <label for="platform">Platform</label>
+                        <select id="platform">
+                            <option value="shopify" selected>Shopify</option>
+                            <option value="magento" >Magento</option>
+                            <option value="big commerce" >Big commerce</option>
+                            <option value="woo commerce" >Woo commerce</option>
+                            <option value="other" >Other</option>
+                        </select>
+                        <label for="comments">Comments</label>
+                        <textarea name="" id="comments" cols="" rows="" placeholder="Please type here…."></textarea>
+                        <button>Request Free Invite</button>
+                    </form>
+                </div>
+            </section>

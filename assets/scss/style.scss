@@ -12,6 +12,14 @@ $shadowTitle480: 0 -10px 0 0 #f67e90 inset;
     transform: translateY(-2px);
   }
 }
+.fancybox-slide{
+  padding: 0;
+  .fancybox-content{
+    width: 100%;
+    padding: 0;
+  }
+}
+
 a,
 abbr,
 acronym,
@@ -1411,6 +1419,8 @@ main .section-title > * {
   }
 }
 .form{
+  display: none;
+  width: 100%;
   background: #E8F0FF 0% 0% no-repeat padding-box;
   padding: 90px 0;
   min-height: 100vh;
@@ -1423,6 +1433,20 @@ main .section-title > * {
     margin-right: auto;
     padding-top: 66px;
     padding-left: 70px;
+    position: relative;
+    .close{
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      cursor: pointer;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
     .form-title{
       text-align: left;
       font-family: 'Montserrat';
@@ -1446,6 +1470,7 @@ main .section-title > * {
         letter-spacing: 0;
         opacity: 1;
         display: block;
+        cursor: pointer;
         span{
           color: red;
         }
@@ -1486,6 +1511,26 @@ main .section-title > * {
       }
       select{
         -webkit-appearance: none;
+        position: relative;
+        display: inline-block;
+        background-image: url(../img/select.svg);
+        background-repeat: no-repeat;
+        background-position: calc(100% - 10px) center;
+        cursor: pointer;
+        option:checked, option:hover{
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+      }
+      
+      select::after{
+        content: url(../img/select.svg);
+        display: inline-block;
+        width: 18px;
+        height: 10px;
+        z-index: 15;
+        position: absolute;
+        background-color: red;
       }
       input, textarea, select{
         box-sizing: border-box;
@@ -2209,7 +2254,12 @@ main .section-title > * {
 
   .form{
     padding: 20px 10px;
+    
     .contact-form{
+      .close{
+        width: 25px;
+        height: 25px;
+      }
       box-sizing: border-box;
       padding: 30px 50px;
       width: 100%;
@@ -2220,11 +2270,11 @@ main .section-title > * {
         line-height: 35px;
       }
       form{
-        input, textarea{
+        input, textarea, select{
           width: 100%;
           max-width: 100%;
         }
-        label,input,textarea, input::placeholder, textarea::placeholder{
+        label,input,select,textarea, input::placeholder, textarea::placeholder{
           font-size: 15px;  
           line-height: 17px;
         }
@@ -2633,20 +2683,24 @@ main .section-title > * {
     .contact-form{
       box-sizing: border-box;
       padding: 20px 20px;
+      .close{
+        width: 20px;
+        height: 20px;
+      }
       .form-title{
         font-size: 20px;
         line-height: 22px;
         margin-bottom: 22px;
       }
       form{
-        input, textarea{
+        input, textarea,select{
           padding: 10px;
           height: auto;
         }
         textarea{
           height: 100px;
         }
-        label,input,textarea, input::placeholder, textarea::placeholder{
+        label,input,select,textarea, input::placeholder, textarea::placeholder{
           font-size: 14px;  
           line-height: 16px;
         }
