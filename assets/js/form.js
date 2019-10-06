@@ -1,14 +1,34 @@
 function form(){
     let btn = jQuery('.header header .header_btn a');
+    let topBtn = jQuery('.top-btn a');
+    let helpbtn = jQuery('.help .help_content_btn a');
+    let questionbtn = jQuery('.questions .btn-questions');
+    let brainbtn = jQuery('.brain .btn');
     let close = jQuery('.form .contact-form .close');
     let form = jQuery('#form_connect');
-    btn.click(function(){
-        btn.fancybox();
+    brainbtn.click(function(){
+        btn.click();
+    });
+    questionbtn.click(function(){
+        btn.click();
+    });
+    helpbtn.click(function(){
+        btn.click();
+    });
+    topBtn.click(function(event){
+        btn.click();
+    });
+    btn.click(function(event){
+        myFancybox(jQuery(this));
     });
     close.click(function(){
         form.trigger('reset');
         jQuery.fancybox.close(); 
     });
+}
+
+function myFancybox(btn){
+    btn.fancybox();
 }
 
 function connect(){
@@ -36,7 +56,8 @@ function connect(){
                 jQuery('.success').html(jQuery('.success').html()+'Error sending.');
             },
             success: function(){
-                form.html('Sent message');
+                form.trigger('reset');
+                jQuery('.success').html(jQuery('.success').html()+'<br><span>Sent message</span>');
             }
         });
         return false;

@@ -202,7 +202,7 @@
                                 endif;
                             ?>  
                         </div>
-                        <div class="btn btn-questions"><a href="#">Request a Free Invite</a></div>  
+                        <div class="btn btn-questions"><a href="javascript:void(0);">Request a Free Invite</a></div>  
                     </div>
                 </section>
     

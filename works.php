@@ -146,7 +146,7 @@
                                 <div class="element phone_brain">
                                     <img src="<?php echo get_template_directory_uri() ?>/assets/img/works/phone.png" alt="phone" class="img-fluid">
                                     <div class="btn">
-                                        <a href="#">Try it for free</a>
+                                        <a href="javascript:void(0);">Try it for free</a>
                                     </div>
                                 </div>
                             </div>

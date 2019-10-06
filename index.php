@@ -59,7 +59,7 @@
                             <p>A smart artificial intelligence tool that will handle your return requests and minimize it by offering incentives to your customers.</p>
                         </div>
                         <div class="top-btn">
-                            <a href="#" class="btn">Try It For Free</a>
+                            <a href="javascript:void(0);" class="btn">Try It For Free</a>
                         </div>
                     </section>
                 </div>
@@ -96,7 +96,7 @@
                                 <p><strong>ReturnHandler</strong> is changing the way brands look at returns and exchanges. Instead of trying to decrease return disappointing process, good customers get free incentives to buy again and cancel the return.</p>
                             </div>
                             <div class="info_text_btn">
-                                <a href="#">Learn more about our solution  <img src="<?php echo get_template_directory_uri() ?>/assets/img/right.svg" alt="right" class="img-fluid"></a>
+                                <a href="<?php bloginfo('url') ?>/solution">Learn more about our solution  <img src="<?php echo get_template_directory_uri() ?>/assets/img/right.svg" alt="right" class="img-fluid"></a>
                             </div>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
                                 <p>It looks like magic, but it is not. We analyze (a lot) of data using sophisticated mathematical models based on machine learning and AI, considering hundreds of parameters.</p>    
                             </div>
                             <div class="info_text_btn">
-                                <a href="#">Learn more about how it works  <img src="<?php echo get_template_directory_uri() ?>/assets/img/right.svg" alt="right" class="img-fluid"></a>
+                                <a href="<?php bloginfo('url') ?>/works">Learn more about how it works  <img src="<?php echo get_template_directory_uri() ?>/assets/img/right.svg" alt="right" class="img-fluid"></a>
                             </div>
                         </div>
                     </div>
@@ -159,7 +159,7 @@
                             <h2>Help the planet. Make more profit. <br> On the same time.</h2>
                         </div>
                         <div class="help_content_btn">
-                            <a href="">Request Invite</a>
+                            <a href="javascript:void(0);">Request Invite</a>
                         </div>
                     </div>
                 </section>

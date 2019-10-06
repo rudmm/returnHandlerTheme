@@ -19,6 +19,9 @@ $shadowTitle480: 0 -10px 0 0 #f67e90 inset;
     padding: 0;
   }
 }
+.fancybox-button{
+ display: none;
+}
 
 a,
 abbr,
@@ -120,7 +123,7 @@ a {
   color: inherit;
 }
 .img-fluid {
-  max-width: 100%;
+  max-width: 80%;
   height: auto;
 }
 .global_wrapper {
@@ -150,7 +153,7 @@ section {
 main .section-title > * {
   font-family: "Montserrat";
   font-weight: 900;
-  font-size: 45px;
+  font-size: 40px;
   line-height: 55px;
 }
 .btn {
@@ -702,6 +705,9 @@ main .section-title > * {
         display: flex;
         justify-content: center;
         align-items: center;
+        a{
+          cursor: pointer;
+        }
       }
       &_image a img{
         max-width: 100%;
@@ -900,6 +906,7 @@ main .section-title > * {
             transform: translateX(-50%);
             top: 800px;    
             max-width: 307px;
+            text-align: center;
             .btn{
                 background: #FF4D29 0% 0% no-repeat padding-box;
                 width: 250px;
@@ -945,7 +952,7 @@ main .section-title > * {
     &_title > * {
       width: 615px;
       text-align: left;
-      font-size: 45px;
+      font-size: 40px;
       line-height: 55px;
       font-family: "Montserrat";
       font-weight: 900;
@@ -963,8 +970,8 @@ main .section-title > * {
       text-align: left;
       font-family: "Lato";
       font-weight: 400;
-      font-size: 24px;
-      line-height: 36px;
+      font-size: 18px;
+      line-height: 27px;
       letter-spacing: 0;
       color: #3d466e;
       strong {
@@ -1056,7 +1063,7 @@ main .section-title > * {
     text-align: left;
     font-family: "Montserrat";
     font-weight: 900;
-    font-size: 45px;
+    font-size: 40px;
     line-height: 55px;
     letter-spacing: 0;
     color: #3d466e;
@@ -1120,7 +1127,7 @@ main .section-title > * {
     text-align: center;
     font-family: "Montserrat";
     font-weight: 900;
-    font-size: 45px;
+    font-size: 40px;
     line-height: 55px;
     letter-spacing: 0;
     color: #3d466e;
@@ -1262,6 +1269,9 @@ main .section-title > * {
 //begin section platform
 
 .platform {
+  .info{
+    margin: 0;
+  }
   background: #002b85 0% 0% no-repeat padding-box;
   padding: 70px 0;
   .info_text_title > * {
@@ -1304,8 +1314,8 @@ main .section-title > * {
         text-align: center;
         font-family: "Lato";
         font-weight: 400;
-        font-size: 24px;
-        line-height: 36px;
+        font-size: 18px;
+        line-height: 27px;
         letter-spacing: 0;
         color: #3d466e;
         strong {
@@ -1333,7 +1343,7 @@ main .section-title > * {
     &_title > * {
       font-family: "Montserrat";
       font-weight: 900;
-      font-size: 45px;
+      font-size: 40px;
       line-height: 55px;
       letter-spacing: 0;
       color: #ffffff;
@@ -1575,6 +1585,9 @@ main .section-title > * {
       }
       .success{
         color: red;
+        span{
+          color: green;
+        }
       }
 
     }
@@ -1595,7 +1608,7 @@ main .section-title > * {
       margin-left: 50px;
     }
     &_text {
-      margin-left: 10px;
+      margin-left: 150px;
     }
   }
   .reverse {
