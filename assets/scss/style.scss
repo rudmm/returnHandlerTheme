@@ -768,7 +768,9 @@ main .section-title > * {
       font-size: 16px;
       line-height: 27px;
       color: #3d466e;
-      margin-bottom: 50px;
+      p{
+        margin-bottom: 50px;
+      }
       img{
         margin-bottom: 40px;
       }
