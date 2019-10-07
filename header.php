@@ -14,7 +14,8 @@
     <div class="global-wrapper">
         <div class="mbox">
         <section class="form" id="myform">
-                <div class="contact-form">
+            <div class="wrapper" >
+                <div class="contact-form" >
                     <span class="close">
                         <img src="<?php echo get_template_directory_uri() ?>/assets/img/delete.svg" alt="close" >
                     </span>
@@ -44,5 +45,6 @@
                         </div>
                         
                     </form>
+                </div>
                 </div>
             </section>

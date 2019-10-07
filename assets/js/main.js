@@ -26,10 +26,10 @@ function clickBurger(){
 }
 
 function answerOpen(){
-    let btn = jQuery('.question .circle');
+    let btn = jQuery('.question');
     for(let i=0;i<btn.length;i++){
         btn.eq(i).click(function(){
-            let lines = btn.eq(i).children('.arrow-lines');
+            let lines = btn.eq(i).find('.arrow-lines');
             let answer = btn.eq(i).parents('.list-item').find('.answer');
             let answerLine = btn.eq(i).parents('.list-item').find('.answer_line');
             lines.toggleClass('open');
@@ -123,24 +123,24 @@ function scrollReveal(){
         easing: 'ease-in',
         
       });
-    ScrollReveal().reveal('.infoflex .info_block.col1',{
-        duration: 2000,
-        origin: 'left',
-        distance: '100px',
-        viewFactor: 0.4
-    });
-    ScrollReveal().reveal('.infoflex .info_block.col2',{
-        duration: 2000,
-        origin: 'bottom',
-        distance: '100px',
-        viewFactor: 0.4
-    });
-    ScrollReveal().reveal('.infoflex .info_block.col3',{
-        duration: 2000,
-        origin: 'right',
-        distance: '100px',
-        viewFactor: 0.4
-    });
+    //ScrollReveal().reveal('.infoflex .info_block.col1',{
+    //    duration: 2000,
+    //    origin: 'left',
+    //    distance: '100px',
+    //    viewFactor: 0.4
+    //});
+    //ScrollReveal().reveal('.infoflex .info_block.col2',{
+    //    duration: 2000,
+    //    origin: 'bottom',
+    //    distance: '100px',
+    //    viewFactor: 0.4
+    //});
+    //ScrollReveal().reveal('.infoflex .info_block.col3',{
+    //    duration: 2000,
+    //    origin: 'right',
+    //    distance: '100px',
+    //    viewFactor: 0.4
+    //});
 }
 
 function buttonsNavigation(){

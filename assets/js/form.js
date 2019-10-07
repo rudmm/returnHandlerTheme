@@ -4,19 +4,20 @@ function form(){
     let helpbtn = jQuery('.help .help_content_btn a');
     let questionbtn = jQuery('.questions .btn-questions');
     let brainbtn = jQuery('.brain .btn');
-    let close = jQuery('.form .contact-form .close');
+    let close = jQuery('.contact-form .close');
     let form = jQuery('#form_connect');
+    let sectionForm = jQuery('#myform');
     brainbtn.click(function(){
-        btn.click();
+        myFancybox(btn);
     });
     questionbtn.click(function(){
-        btn.click();
+        myFancybox(btn);
     });
     helpbtn.click(function(){
-        btn.click();
+        myFancybox(btn);
     });
     topBtn.click(function(event){
-        btn.click();
+        myFancybox(btn);
     });
     btn.click(function(event){
         myFancybox(jQuery(this));
@@ -28,7 +29,10 @@ function form(){
 }
 
 function myFancybox(btn){
-    btn.fancybox();
+    //btn.fancybox({
+	//	'modal' : true
+    //});
+    jQuery.fancybox.open(btn);
 }
 
 function connect(){
